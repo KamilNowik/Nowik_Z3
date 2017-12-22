@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     string napis, napis_schowek;
-    int powtorzenie;
+    int powtorzenie=0;
     while (napis != "end")
     {
         cout << "Podaj ciag napisow oddzielonych spacja, na zakonczenie wpisz 'end' : " << endl;
@@ -14,10 +14,15 @@ int main()
         if (napis!="end" && napis_schowek.empty())
         {
             napis_schowek=napis;
+
         }
         if (napis.size()<napis_schowek.size()&& napis!="end")
         {
             napis_schowek=napis;
+        }
+        if (napis[napis.size()-1] == napis[napis.size()-2])
+        {
+            powtorzenie++;
         }
 
     }
@@ -49,9 +54,13 @@ int main()
             napis_schowek=napis;
         }
 
+        if (napis[napis.size()-1] == napis[napis.size()-2])
+        {
+            powtorzenie++;
+        }
     }
 
-    cout << "Powtórzenie dwóch ostatnich liter wystêpuje" << powtorzenie  << " razy." << endl;
+    cout << "Powtorzenie dwoch ostatnich liter wystepuje " << powtorzenie  << " razy." << endl;
     cout << "Najkrotszy napis ma " << napis_schowek.size() << " znakow."<< endl;
 
     return 0;
