@@ -5,7 +5,8 @@ using namespace std;
 
 int main()
 {
-    string napis, nowe_slowo, napis_schowek;
+    string napis, napis_schowek;
+    int powtorzenie;
     while (napis != "end")
     {
         cout << "Podaj ciag napisow oddzielonych spacja, na zakonczenie wpisz 'end' : " << endl;
@@ -18,8 +19,7 @@ int main()
         {
             napis_schowek=napis;
         }
-        nowe_slowo+=napis[napis.size()-2];
-        nowe_slowo+=napis[napis.size()-1];
+
     }
     int n;
     do
@@ -48,54 +48,10 @@ int main()
         {
             napis_schowek=napis;
         }
-        nowe_slowo+=napis[napis.size()-2];
-        nowe_slowo+=napis[napis.size()-1];
+
     }
 
-    if (nowe_slowo.size()<4)
-        {
-            cout << "Podano za malo napisow, aby je porownywac, program zostanie zakonczony, kliknij dowolny klawisz aby wyjsc i sproboj ponownie." << endl;
-            cin.sync();
-            cin.get();
-            exit(0);
-        }
-
-    int powtorzenie=0, schowek, zamiana;
-    do
-    {
-        zamiana=0;
-        for (int i=0; i<nowe_slowo.size()-3; i+=2)
-        {
-            if (nowe_slowo[i]>nowe_slowo[i+2])
-            {
-                zamiana+=1;
-                schowek=nowe_slowo[i];
-                nowe_slowo[i]=nowe_slowo[i+2];
-                nowe_slowo[i+2]=schowek;
-                schowek=nowe_slowo[i+1];
-                nowe_slowo[i+1]=nowe_slowo[i+3];
-                nowe_slowo[i+3]=schowek;
-            }
-        }
-    }
-    while (zamiana!=0);
-
-    int i=0;
-    while (i<nowe_slowo.size()-3)
-    {
-        if (nowe_slowo[i]==nowe_slowo[i+2] && nowe_slowo[i+1]==nowe_slowo[i+3])
-        {
-            powtorzenie+=2;
-            i+=2;
-            while (nowe_slowo[i]==nowe_slowo[i+2] && nowe_slowo[i+1]==nowe_slowo[i+3])
-                {
-                    powtorzenie++;
-                    i+=2;
-                }
-        }
-        i+=2;
-    }
-    cout << "Takie same koncowki wystepuja w " << powtorzenie << " wyrazach." << endl;
+    cout << "Powtórzenie dwóch ostatnich liter wystêpuje" << powtorzenie  << " razy." << endl;
     cout << "Najkrotszy napis ma " << napis_schowek.size() << " znakow."<< endl;
 
     return 0;
