@@ -53,6 +53,5 @@ int main()
 
     cout << "Powtórzenie dwóch ostatnich liter wystêpuje" << powtorzenie  << " razy." << endl;
     cout << "Najkrotszy napis ma " << napis_schowek.size() << " znakow."<< endl;
-
     return 0;
 }
